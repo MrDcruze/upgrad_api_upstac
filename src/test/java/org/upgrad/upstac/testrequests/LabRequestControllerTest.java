@@ -1,14 +1,11 @@
 package org.upgrad.upstac.testrequests;
 
-import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.web.server.ResponseStatusException;
 import org.upgrad.upstac.config.security.UserLoggedInService;
@@ -235,12 +232,14 @@ class LabRequestControllerTest {
         TestRequest testRequest = getMockedResponseFrom(createTestRequest);
         testRequest.setStatus(requestStatus);
         LabResult labResult = new LabResult();
+        labResult.setBloodPressure("102");
+        labResult.setHeartBeat("88");
+        labResult.setOxygenLevel("98");
+        labResult.setTemperature("99");
+        labResult.setResult(TestStatus.NEGATIVE);
         testRequest.setLabResult(labResult);
         return testRequest;
     }
-
-
-
 
     private User createUser() {
         User user = new User();
