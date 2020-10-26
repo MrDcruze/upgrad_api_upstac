@@ -45,7 +45,7 @@ class LabRequestControllerTest {
 
 
     @Test
-    @WithUserDetails(value = "testerv")
+    @WithUserDetails(value = "tester")
     public void calling_assignForLabTest_with_valid_test_request_id_should_update_the_request_status(){
 
         TestRequest testRequest = getTestRequestByStatus(RequestStatus.INITIATED);
@@ -100,7 +100,7 @@ class LabRequestControllerTest {
     }
 
     @Test
-    @WithUserDetails(value = "testerv")
+    @WithUserDetails(value = "tester")
     public void calling_updateLabTest_with_valid_test_request_id_should_update_the_request_status_and_update_test_request_details(){
         Long id = 1L;
         TestRequest testRequest = getTestRequestByStatus(RequestStatus.LAB_TEST_IN_PROGRESS);
@@ -130,7 +130,7 @@ class LabRequestControllerTest {
 
 
     @Test
-    @WithUserDetails(value = "testerv")
+    @WithUserDetails(value = "tester")
     public void calling_updateLabTest_with_invalid_test_request_id_should_throw_exception(){
 
         TestRequest testRequest = getTestRequestByStatus(RequestStatus.LAB_TEST_IN_PROGRESS);
